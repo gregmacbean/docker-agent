@@ -1,6 +1,4 @@
-SERVERLESS_VERSION = 1.60.0
-IMAGE_NAME ?= docker-serverless-build-agent:$(SERVERLESS_VERSION)
-TAG = $(SERVERLESS_VERSION)
+IMAGE_NAME ?= docker-agent
 
 build:
 	docker build -t $(IMAGE_NAME) .

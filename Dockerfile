@@ -1,17 +1,11 @@
-FROM node:lts-alpine
+FROM alpine
 
-RUN apk add --no-cache bash \ 
+RUN apk add --update --no-cache \ 
+  bash \ 
+  docker \
+  openrc \
   make \ 
-  nodejs \ 
-  npm \ 
-  yarn \ 
-  curl \ 
-  wget \ 
-  zip \ 
   py-pip \ 
-  && \
-  pip --no-cache-dir install awscli
+  docker-compose
 
-RUN npm install -g serverless
-
-WORKDIR /opt/app
+RUN rc-update add docker boot
